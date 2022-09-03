@@ -1,0 +1,6 @@
+{
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/_builds/compile_commands.json",
+    "files.associations": {
+        "stdbool.h": "c"
+    }
+}
