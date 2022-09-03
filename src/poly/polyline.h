@@ -1,7 +1,7 @@
 #ifndef POLYLINE_H
 #define POLYLINE_H
 
-type_polyline_st* poly_alloc(uint8_t f_len_u8);
+type_polyline_st* poly_alloc(uint32_t f_len_u32);
 
 void poly_free(type_polyline_st* f_line_pst);
 
