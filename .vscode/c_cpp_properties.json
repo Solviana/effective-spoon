@@ -14,7 +14,7 @@
             "intelliSenseMode": "linux-clang-x64",
             "configurationProvider": "ms-vscode.cmake-tools",
             "forcedInclude": [
-                "common_types.h"
+                "${workspaceFolder}/src/common/common_types.h"
             ]
         }
     ],

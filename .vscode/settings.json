@@ -1,6 +1,7 @@
 {
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/_builds/compile_commands.json",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json",
     "files.associations": {
         "stdbool.h": "c"
-    }
+    },
+    "cmake.configureOnOpen": false
 }
