@@ -1,7 +1,9 @@
 #ifndef COMMON_TYPES_H
 #define COMMON_TYPES_H
 
+#include <stddef.h> //for NULL
 #include <stdint.h>
+#include <stdbool.h>
 
 typedef float type_float;
 

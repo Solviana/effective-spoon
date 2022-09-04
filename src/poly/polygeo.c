@@ -1,6 +1,5 @@
 #include "common_types.h"
 
-#include <stdbool.h>
 #include <math.h>
 #include "polygeo.h"
 
