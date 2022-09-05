@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-typedef float type_float;
+typedef double type_float;
 
 typedef struct tag_point
 {

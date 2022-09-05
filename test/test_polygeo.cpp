@@ -1,6 +1,9 @@
 #include <gtest.h>
 
+extern "C"
+{
 #include "polygeo.c"
+}
 
 TEST(geo, trianglearea)
 {
@@ -28,5 +31,40 @@ TEST(geo, polyarea)
     type_float area = poly_area(&p1);
 
     EXPECT_FLOAT_EQ(area, 0.25);
+}
 
+TEST(geo, polycut)
+{
+    // construct a square
+    type_polyline_st p1 = {{0,0}, nullptr};
+    type_polyline_st p2 = {{1,0}, nullptr};
+    type_polyline_st p3 = {{1,1}, nullptr};
+    type_polyline_st p4 = {{0,1}, nullptr};
+    p1.next_pst = &p2;
+    p2.next_pst = &p3;
+    p3.next_pst = &p4;
+    // create a diagonal
+    type_polyline_st l1 = {{0,0}, nullptr};
+    type_polyline_st l2 = {{1,1}, nullptr};
+    l1.next_pst = &l2;
+
+    bool retval = false;
+    type_polyline_st* newlines[2];
+    retval = poly_cut_polyline(&p1, &l1, newlines);
+
+    EXPECT_TRUE(retval);
+    EXPECT_FLOAT_EQ(newlines[0]->p_st.x_f, 0);
+    EXPECT_FLOAT_EQ(newlines[0]->p_st.y_f, 0);
+    EXPECT_FLOAT_EQ(newlines[0]->next_pst->p_st.x_f, 1);
+    EXPECT_FLOAT_EQ(newlines[0]->next_pst->p_st.y_f, 0);
+    EXPECT_FLOAT_EQ(newlines[0]->next_pst->next_pst->p_st.x_f, 1);
+    EXPECT_FLOAT_EQ(newlines[0]->next_pst->next_pst->p_st.y_f, 1);
+    EXPECT_TRUE(newlines[0]->next_pst->next_pst->next_pst == nullptr);
+    EXPECT_FLOAT_EQ(newlines[1]->p_st.x_f, 1);
+    EXPECT_FLOAT_EQ(newlines[1]->p_st.y_f, 1);
+    EXPECT_FLOAT_EQ(newlines[1]->next_pst->p_st.x_f, 0);
+    EXPECT_FLOAT_EQ(newlines[1]->next_pst->p_st.y_f, 1);
+    EXPECT_FLOAT_EQ(newlines[1]->next_pst->next_pst->p_st.x_f, 0);
+    EXPECT_FLOAT_EQ(newlines[1]->next_pst->next_pst->p_st.y_f, 0);
+    EXPECT_TRUE(newlines[1]->next_pst->next_pst->next_pst == nullptr);
 }

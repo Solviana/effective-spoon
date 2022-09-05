@@ -13,5 +13,6 @@ void game_polyqueue_realloc(type_polyqueue_st* f_q_st);
 void game_polyqueue_dealloc(type_polyqueue_st* f_q_st);
 void game_polyqueue_enqueue(type_polyqueue_st* f_q_pst, type_polyline_st* f_line_pst);
 type_polyline_st* game_polyqueue_dequeue(type_polyqueue_st* f_q_st);
+uint32_t game_polyqueue_used_size(const type_polyqueue_st* f_q_pst);
 
 #endif

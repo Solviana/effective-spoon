@@ -40,7 +40,7 @@ static void input_read_polyline(type_polyline_st* f_line_pst, const uint8_t f_np
     type_polyline_st* l_curr_pst = f_line_pst;
     for(int i = 0; i < f_npoints_u8; i++)
     {
-        scanf("%f %f", &l_curr_pst->p_st.x_f, &l_curr_pst->p_st.y_f);
+        scanf("%lf %lf", &l_curr_pst->p_st.x_f, &l_curr_pst->p_st.y_f);
         l_curr_pst = l_curr_pst->next_pst;
     }
 }
@@ -55,7 +55,7 @@ static void input_read_lines(type_polyline_st** f_linebuffer_ppst, const uint8_t
 
 static void input_read_line(type_polyline_st* f_line_pst)
 {
-    scanf("%f %f %f %f", 
+    scanf("%lf %lf %lf %lf", 
         &f_line_pst->p_st.x_f, &f_line_pst->p_st.y_f, 
         &f_line_pst->next_pst->p_st.x_f, &f_line_pst->next_pst->p_st.y_f);
 }
