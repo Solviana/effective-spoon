@@ -11,7 +11,7 @@ extern "C"
 
 TEST(input, readline)
 {
-    fptr = fopen("../test/data/lineread.txt", "r"); // relative to build folder. sorry!
+    fptr = fopen("../../test/data/lineread.txt", "r"); // relative to build folder. sorry!
     ASSERT_TRUE(fptr != nullptr) << "Test error";
 
     type_polyline_st p1;
@@ -22,7 +22,7 @@ TEST(input, readline)
     input_read_line(&p1);
     EXPECT_FLOAT_EQ(p1.p_st.x_f, 0.5);
     EXPECT_FLOAT_EQ(p1.p_st.y_f, 0);
-    EXPECT_FLOAT_EQ(p2.p_st.x_f, 0.252);
+    EXPECT_FLOAT_EQ(p2.p_st.x_f, 0.252134);
     EXPECT_FLOAT_EQ(p2.p_st.y_f, 1);
 
     fclose(fptr);
@@ -30,7 +30,7 @@ TEST(input, readline)
 
 TEST(input, readpolyline)
 {
-    fptr = fopen("../test/data/polylineread.txt", "r");
+    fptr = fopen("../../test/data/polylineread.txt", "r");
     ASSERT_TRUE(fptr != nullptr) << "Test error";
 
     type_polyline_st p1;
@@ -52,7 +52,7 @@ TEST(input, readpolyline)
 
 TEST(input, readsize)
 {
-    fptr = fopen("../test/data/input.txt", "r");
+    fptr = fopen("../../test/data/input.txt", "r");
     ASSERT_TRUE(fptr != nullptr) << "Test error";
 
     uint8_t l_lines_u8;
@@ -67,7 +67,7 @@ TEST(input, readsize)
 
 TEST(input, readinput)
 {
-    fptr = fopen("../test/data/input.txt", "r");
+    fptr = fopen("../../test/data/input.txt", "r");
     ASSERT_TRUE(fptr != nullptr) << "Test error";
 
     type_polyline_st* l_polygon_pst;
