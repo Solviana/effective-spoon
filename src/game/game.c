@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include "polyqueue.h"
 #include "polygeo.h"
+#include "polyline.h"
 #include "input.h"
 #include "game.h"
 
@@ -23,7 +24,7 @@ type_float game_play(void)
     for(uint32_t i = 0; i < l_lines_u8; i++)
     {
         game_draw_line(&l_polygonbuffer_st, l_linebuffer_ppst[i]);
-        free(l_linebuffer_ppst[i]); // line not needed anymore
+        poly_free(l_linebuffer_ppst[i]); // line not needed anymore
     }
 
     l_maxarea_f = game_find_largest(&l_polygonbuffer_st);
