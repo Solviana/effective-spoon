@@ -181,8 +181,8 @@ static bool poly_intersect_line_line(const type_polyline_st *const f_line1_pst, 
         // determine if intersect happens on line 1 
         // starting point is isncluded, endpoint not!
         // float comparison room for improvement
-        if (f_line1_pst->next_pst->p_st.x_f == f_intersect_pst->x_f
-            && f_line1_pst->next_pst->p_st.y_f == f_intersect_pst->y_f)
+        if (fabs(f_line1_pst->next_pst->p_st.x_f - f_intersect_pst->x_f) < 1.e-5
+            && fabs(f_line1_pst->next_pst->p_st.y_f - f_intersect_pst->y_f) < 1.e-5)
         {
             l_ret_b = false;
         }

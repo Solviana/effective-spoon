@@ -30,7 +30,14 @@ void game_polyqueue_enqueue(type_polyqueue_st* f_q_pst, type_polyline_st* f_line
 uint32_t game_polyqueue_used_size(const type_polyqueue_st* f_q_pst)
 {
     uint32_t l_ret_u32;
-    l_ret_u32 = f_q_pst->tail_u32 - f_q_pst->head_u32 + 1;
+    if (f_q_pst->head_u32 > f_q_pst->tail_u32)
+    {
+        l_ret_u32 = 0;
+    }
+    else
+    {   
+        l_ret_u32 = f_q_pst->tail_u32 - f_q_pst->head_u32 + 1;
+    }
     return l_ret_u32;
 }
 
